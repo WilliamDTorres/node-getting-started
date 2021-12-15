@@ -22,28 +22,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
       - uses: okteto/context@latest
         with:
           token: ${{ secrets.OKTETO_TOKEN }}
 
       - name: "Activate Namespace"
         uses: okteto/namespace@latest
-        with:
-          name: williamdtorres
 
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
           name: node-getting-started
-          
-      - name: "Deploy application"
-        uses: okteto/apply@latest
-        with:
-          namespace: williamdtorres
-          manifest: k8s.yml
 
       - name: "Push changes"
         uses: okteto/push@latest
