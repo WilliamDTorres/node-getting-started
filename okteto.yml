@@ -1,4 +1,4 @@
-name: node-getting-started
+name: hello-world
 image: okteto/node:14
 command: bash
 sync:
