@@ -31,18 +31,17 @@ jobs:
 
       - name: "Activate Namespace"
         uses: okteto/namespace@latest
-
-      - name: "Trigger the pipeline"
-        uses: okteto/pipeline@latest
         with:
           name: node-getting-started
 
-      - name: "Destroy the pipeline"
-        uses: okteto/destroy-pipeline@latest
+      - name: "Deploy application"
+        uses: okteto/apply@latest
         with:
-          name: node-getting-started
-          
-      - name: "Trigger the pipeline"
-        uses: okteto/pipeline@latest
+          namespace: node-getting-started
+          manifest: k8s.yml
+
+      - name: "Push changes"
+        uses: okteto/push@latest
         with:
-          name: node-getting-started
+          namespace: node-getting-started
+          name: hello-world
