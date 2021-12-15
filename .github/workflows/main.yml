@@ -45,3 +45,13 @@ jobs:
         with:
           namespace: williamdtorres
           name: hello-world
+          
+      - name: Install gigalixir cli
+        run: |
+          curl https://get.okteto.com -sSfL | sh
+          okteto version
+          
+      - name: restart
+        run: |
+          okteto context create https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
+          okteto restart
