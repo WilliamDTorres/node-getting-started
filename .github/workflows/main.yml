@@ -33,6 +33,12 @@ jobs:
         uses: okteto/namespace@latest
         with:
           name: williamdtorres
+      
+      - name: "Deploy application"
+        uses: okteto/apply@latest
+        with:
+          namespace: williamdtorres
+          manifest: k8s.yml
 
       - name: "Push changes"
         uses: okteto/push@latest
