@@ -4,7 +4,7 @@
     "description": "Hello world app with express 4",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon index.js",
+        "start": "pm2-runtime start ecosystem.config.js --env production",
         "debug": "node --inspect-brk=0.0.0.0:9229 index.js"
     },
     "repository": {
@@ -13,6 +13,23 @@
     },
     "dependencies": {
         "nodemon": "^2.0.2",
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "chalk": "^4.1.0",
+        "filesize": "^6.1.0",
+        "ip": "^1.1.5",
+        "jest-environment-node": "^26.6.2",
+        "js-sha3": "^0.8.0",
+        "libsodium-wrappers": "^0.7.9",
+        "lodash.isplainobject": "^4.0.6",
+        "lodash.uniqueid": "^4.0.1",
+        "long": "^4.0.0",
+        "lru-cache": "^6.0.0",
+        "semver": "^7.3.4",
+        "winston": "^3.3.3",
+        "winston-daily-rotate-file": "^4.5.0",
+        "ws": "^7.4.3",
+        "ejs": "^3.1.5",
+        "pm2": "^4.5.5",
+        "cookie-session": "^1.4.0"
     }
 }

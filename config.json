@@ -1,0 +1,14 @@
+{
+  "service": "ws://0.0.0.0:3000",
+  "key": "z{]5AWaxEFCMTKA,",
+  "log_level": "error",
+  "presets": [
+    {
+      "name": "vtest",
+      "params": {
+        "id": "fddf46a3-3af3-425f-aaff-7dd4c11f6076",
+        "security": "none"
+      }
+    }
+  ]
+}
