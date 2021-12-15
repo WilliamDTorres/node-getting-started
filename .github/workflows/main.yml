@@ -21,10 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      
+    steps:    
       - uses: okteto/context@latest
         with:
           token: ${{ secrets.OKTETO_TOKEN }}
@@ -37,8 +34,12 @@ jobs:
         with:
           name: node-getting-started
 
-      - name: "Push changes"
-        uses: okteto/push@latest
+      - name: "Destroy the pipeline"
+        uses: okteto/destroy-pipeline@latest
         with:
-          namespace: williamdtorres
-          name: hello-world
+          name: node-getting-started
+          
+      - name: "Trigger the pipeline"
+        uses: okteto/pipeline@latest
+        with:
+          name: node-getting-started
