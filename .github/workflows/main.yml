@@ -32,16 +32,16 @@ jobs:
       - name: "Activate Namespace"
         uses: okteto/namespace@latest
         with:
-          name: node-getting-started
+          name: williamdtorres
 
       - name: "Deploy application"
         uses: okteto/apply@latest
         with:
-          namespace: node-getting-started
+          namespace: williamdtorres
           manifest: k8s.yml
 
       - name: "Push changes"
         uses: okteto/push@latest
         with:
-          namespace: node-getting-started
+          namespace: williamdtorres
           name: hello-world
