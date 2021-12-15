@@ -28,31 +28,13 @@ jobs:
       - uses: okteto/context@latest
         with:
           token: ${{ secrets.OKTETO_TOKEN }}
-
-      - name: "Activate Namespace"
-        uses: okteto/namespace@latest
-        with:
-          name: williamdtorres
-      
-      - name: "Deploy application"
-        uses: okteto/apply@latest
-        with:
-          namespace: williamdtorres
-          manifest: k8s.yml
-
-      - name: "Push changes"
-        uses: okteto/push@latest
-        with:
-          namespace: williamdtorres
-          name: hello-world
           
-      - name: Install gigalixir cli
-        run: |
-          curl https://get.okteto.com -sSfL | sh
-          okteto version
-          
-      - name: restart
-        run: |
-          okteto context create https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
-          okteto init
-          okteto restart
+      - name: "Delete the previews preview environment"
+        uses: okteto/destroy-preview@latest
+        with:
+         name: dev-previews-williamdtorres
+
+      - name: "Deploy the preview environment"
+        uses: okteto/deploy-preview@latest
+        with:
+          name: dev-previews-williamdtorres
