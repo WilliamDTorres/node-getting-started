@@ -4,7 +4,7 @@
     "description": "Hello world app with express 4",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js",
+        "start": "pm2-runtime start ecosystem.js --env production",
         "debug": "node --inspect-brk=0.0.0.0:9229 index.js"
     },
     "repository": {
