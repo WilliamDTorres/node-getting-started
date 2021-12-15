@@ -44,4 +44,4 @@ jobs:
         uses: okteto/push@latest
         with:
           namespace: williamdtorres
-          name: hello-world
+          name: node-getting-started
