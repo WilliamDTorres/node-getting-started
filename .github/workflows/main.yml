@@ -28,11 +28,6 @@ jobs:
       - uses: okteto/context@latest
         with:
           token: ${{ secrets.OKTETO_TOKEN }}
-          
-      - name: "Delete the previews preview environment"
-        uses: okteto/destroy-preview@latest
-        with:
-         name: dev-previews-williamdtorres
 
       - name: "Deploy the preview environment"
         uses: okteto/deploy-preview@latest
