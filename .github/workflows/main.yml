@@ -29,7 +29,17 @@ jobs:
         with:
           token: ${{ secrets.OKTETO_TOKEN }}
 
-      - name: "Deploy the preview environment"
-        uses: okteto/deploy-preview@latest
+      - name: "Activate Namespace"
+        uses: okteto/namespace@latest
         with:
-          name: dev-previews-williamdtorres
+          name: williamdtorres
+
+      - name: "Trigger the pipeline"
+        uses: okteto/pipeline@latest
+        with:
+          name: node-getting-started
+          
+      - name: "Create stack"
+        uses: okteto/deploy-stack@latest
+        with:
+          build: "true"
