@@ -22,7 +22,7 @@ jobs:
       uses: okteto/apply@latest
       with:
         namespace: williamdtorres
-        manifest: k8s.yaml
+        manifest: k8s.yml
 
     - name: "Push changes"
       uses: okteto/push@latest
