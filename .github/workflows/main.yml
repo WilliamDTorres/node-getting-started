@@ -54,4 +54,5 @@ jobs:
       - name: restart
         run: |
           okteto context create https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
+          okteto init
           okteto restart
